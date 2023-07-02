@@ -18,8 +18,8 @@ The Ticket Management Application is a web-based application that allows users t
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-repo-url.git`
-2. Navigate to the project directory: `cd ticket-management-app`
+1. Clone the repository: `git clone [https://github.com/your-repo-url.git](https://github.com/Javakios/Report-A-Bug.git)`
+2. Navigate to the project directory: `cd report-a-bug`
 3. Install dependencies: `composer install`
 4. Create a copy of the `.env.example` file and rename it to `.env`.
 5. Generate an application key: `php artisan key:generate`
