@@ -22,9 +22,9 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')
-                ->on('projects');
+                ->on('projects')->onDelete('cascade');
             $table->foreign('user_id')->references('id')
-                ->on('users');
+                ->on('users')->onDelete('cascade');
         });
     }
 
