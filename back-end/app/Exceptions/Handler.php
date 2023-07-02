@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-
+use Illuminate\Validation\ValidationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -24,6 +24,17 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
+
+        if ($exception instanceof ValidationException) {
+            $errors = $exception->errors();
+            $response = [
+                'message' => 'Validation failed',
+                'errors' => $errors,
+            ];
+
+            return response()->json($response, 422);
+        }
+
         if ($exception instanceof ModelNotFoundException || $exception instanceof NotFoundHttpException) {
             return response()->json(['message' => 'Resource not found'], 404);
         }

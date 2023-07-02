@@ -14,11 +14,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+        $users = User::with('projects', 'tickets')->get();
         return response()->json(
             [
                 'message' => 'success',
-                'user' => $user
+                'user' => $users
             ],
             200
         );
@@ -57,8 +57,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        $user = User::findOrFail($id);
-
+        $user = $user = User::with('projects', 'tickets')->findOrFail($id);
         return response()->json(
             [
                 'message' => 'success',

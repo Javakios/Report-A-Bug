@@ -41,6 +41,14 @@ class ProjectController extends Controller
         $data = $request->validate($rules);
         $data['status'] = Project::DEVELOPMENT_STATE;
         $project = Project::create($data);
+
+        return response()->json(
+            [
+                'message' => 'success',
+                'project' => $project
+            ],
+            201
+        );
     }
 
     /**

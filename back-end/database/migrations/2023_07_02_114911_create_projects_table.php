@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('desciption');
+            $table->longText('description');
             $table->string('status')->default(Project::DEVELOPMENT_STATE);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Login\LoginController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Http\Controllers\Ticket\TicketController;
@@ -21,3 +22,5 @@ Route::resource('projects', ProjectController::class)->except(['create', 'edit']
 Route::resource('users', UserController::class)->except(['create', 'edit']);
 Route::resource('tickets', TicketController::class)->except(['create', 'edit']);
 Route::resource('tickets.steps', StepsController::class)->except(['destroy']);
+Route::post('/auth/login', [LoginController::class, 'login']);
+Route::post('/auth/logout', [LoginController::class, 'logout']);

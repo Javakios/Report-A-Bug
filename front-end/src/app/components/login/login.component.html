@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="header">
+    <h1 class="header-text">Report A Bug</h1>
+  </div>
+  <div class="login-form">
+    <h2 class="login-header">Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="form" *ngIf="loginMode">
+      <div class="input-fiedls">
+        <span class="p-input-icon-right">
+          <i class="pi pi-user"></i>
+          <input type="text" pInputText formControlName="name" [placeholder]="'Username'" required />
+        </span>
+        <span class="p-input-icon-right">
+          <i class="pi pi-lock"></i>
+          <input type="password" pInputText formControlName="password" [placeholder]="'Password'" required />
+        </span>
+        <span class="p-input-icon-right">
+          <button class="login-btn" [class.disabled]="!loginForm.valid" [disabled]="!loginForm.valid" type="submit">
+            Login
+          </button>
+        </span>
+      </div>
+    </form>
+    <form [formGroup]="registerForm" (ngSubmit)="login()" class="form" *ngIf="!loginMode">
+      <div class="input-fiedls">
+        <span class="p-input-icon-right">
+          <i class="pi pi-user"></i>
+          <input type="text" pInputText formControlName="name" [placeholder]="'Username'" required />
+        </span>
+        <span class="p-input-icon-right">
+          <i class="pi pi-lock"></i>
+          <input type="password" pInputText formControlName="email" [placeholder]="'email'" required />
+        </span>
+        <span class="p-input-icon-right">
+          <i class="pi pi-lock"></i>
+          <input type="password" pInputText formControlName="password" [placeholder]="'Password'" required />
+        </span>
+        <span class="p-input-icon-right">
+          <i class="pi pi-lock"></i>
+          <input type="password" pInputText formControlName="password_confirmation" [placeholder]="'Confirm Password'" required />
+        </span>
+        <span class="p-input-icon-right">
+          <button class="login-btn" [class.disabled]="!loginForm.valid" [disabled]="!loginForm.valid" type="submit">
+            Register
+          </button>
+        </span>
+      </div>
+    </form>
+    <div class="login-footer">
+      <p class="login-footer-text">Don't have an account?</p>
+      <button class="login-footer-btn" (click)="switchMode()">{{ loginMode ? 'Register' : 'Login' }}</button>
+      <div class="copyright">
+        <p>© 2023 Report A Bug. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
