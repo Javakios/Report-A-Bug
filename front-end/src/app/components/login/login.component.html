@@ -3,7 +3,7 @@
     <h1 class="header-text">Report A Bug</h1>
   </div>
   <div class="login-form">
-    <h2 class="login-header">Login</h2>
+    <h2 class="login-header">{{loginMode ? 'Login' : 'Register'}}</h2>
     <form [formGroup]="loginForm" (ngSubmit)="login()" class="form" *ngIf="loginMode">
       <div class="input-fiedls">
         <span class="p-input-icon-right">
@@ -21,7 +21,7 @@
         </span>
       </div>
     </form>
-    <form [formGroup]="registerForm" (ngSubmit)="login()" class="form" *ngIf="!loginMode">
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="form" *ngIf="!loginMode">
       <div class="input-fiedls">
         <span class="p-input-icon-right">
           <i class="pi pi-user"></i>
@@ -29,7 +29,7 @@
         </span>
         <span class="p-input-icon-right">
           <i class="pi pi-lock"></i>
-          <input type="password" pInputText formControlName="email" [placeholder]="'email'" required />
+          <input type="email" pInputText formControlName="email" [placeholder]="'email'" required />
         </span>
         <span class="p-input-icon-right">
           <i class="pi pi-lock"></i>
